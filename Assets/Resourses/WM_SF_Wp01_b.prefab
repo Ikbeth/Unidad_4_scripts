@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3450727317705062881}
-  - component: {fileID: 2949815379779069805}
   m_Layer: 0
   m_Name: bulletSpawn
   m_TagString: Untagged
@@ -32,18 +31,6 @@ Transform:
   m_Father: {fileID: 5572785452917869503}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2949815379779069805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1355099581799774374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc613e329da2baa47b6a11beda1075c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5575037156007910217
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,10 +77,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31a99741d4a2e13468281f69f7f77a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn: {fileID: 3450727317705062881}
-  bullet: {fileID: 0}
-  shootForce: 1500
+  range: 1500
+  damage: 10
   shootRate: 0.5
+  cam: {fileID: 0}
+  spawn: {fileID: 3450727317705062881}
 --- !u!1 &5575427510649797871
 GameObject:
   m_ObjectHideFlags: 0
