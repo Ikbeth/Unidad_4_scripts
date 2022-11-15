@@ -13,6 +13,10 @@ public class Shoot : MonoBehaviour
 
     public Camera cam;
     public GameObject spawn;
+
+    public ParticleSystem muzzle;
+    public GameObject impact;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,10 +25,15 @@ public class Shoot : MonoBehaviour
         {
             if (Time.time > shootRateTime)
             {
-                if (Physics.Raycast(spawn.transform.position, cam.transform.forward, out hit, range))
+                muzzle.Play();
+
+                if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, range))
                 {
                     Debug.Log(hit.transform.name);
                 }
+
+                GameObject ImpactGO = Instantiate(impact, hit.point, Quaternion.LookRotation(hit.normal));
+                Destroy(ImpactGO, 2f);
 
                 //a~ade el tiempo de cooldown para disparar
                 shootRateTime = Time.time + shootRate;

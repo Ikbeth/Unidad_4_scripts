@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
-    public int level = 0;
     public TextMeshProUGUI txt;
     // Start is called before the first frame update
     void Start()
@@ -20,7 +19,7 @@ public class Teleport : MonoBehaviour
 
         if (Input.GetKey(KeyCode.C))
         {
-            LoadScene(level);
+            LoadScene();
         }
     }
 
@@ -29,8 +28,17 @@ public class Teleport : MonoBehaviour
         txt.text = "";
     }
 
-    public void LoadScene (int scene)
+    public void LoadScene ()
     {
-        SceneManager.LoadScene(scene);
+        Scene scene = SceneManager.GetActiveScene();
+
+        if (!scene.Equals(1))
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
     }
 }
